@@ -1,6 +1,9 @@
 import speech_recognition
+import webbrowser
+from random import randint
 
 exercise = ['Отжимания', 'подтягивания']
+
 
 def dispatcher(record):
     if record == 'открой дневник':
@@ -8,6 +11,10 @@ def dispatcher(record):
 
     if record == 'выдай упражнения':
         Commands.workout(self=record, exercise=exercise)
+
+    else:
+        raise ValueError
+
 
 def record_and_recognize_audio(*args: tuple):
     """
@@ -44,14 +51,16 @@ def record_and_recognize_audio(*args: tuple):
 class Commands():
 
     def lms(self):
-        print('тут будет открытие лмс...')
+        webbrowser.open('https://smartedu.hse.ru/')
 
     def stop(self, text):
         if text == 'стоп':
             print('стоп')
 
     def workout(self, exercise):
-        print('тут будет i.rand(exercise)')
+        task = exercise[randint(0, len(exercise)-1)]
+        print(task)
+
 
 if __name__ == "__main__":
 
@@ -64,4 +73,8 @@ if __name__ == "__main__":
         voice_input = record_and_recognize_audio()
         print(voice_input, '-- финальная расшифровка')
 
-        dispatcher(voice_input)
+        try:
+            dispatcher(voice_input)
+
+        except ValueError:
+            print('Я не нашёл команду')
