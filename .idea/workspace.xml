@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="00922d9d-0832-48de-baad-d2c133fc4d1c" name="Changes" comment="" />
+    <list default="true" id="00922d9d-0832-48de-baad-d2c133fc4d1c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Artem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +16,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2I3XLJVl0Mcefe3fo8rrvZE5HVZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -24,7 +31,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "last_opened_file_path": "C:/Users/User/PycharmProjects/Voice_Assistant",
-    "settings.editor.selected.configurable": "configurable.group.tools"
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
