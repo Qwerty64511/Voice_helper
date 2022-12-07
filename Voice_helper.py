@@ -1,4 +1,12 @@
 import speech_recognition
+import webbrowser
+from random import randint
+def dispatcher(record):
+    if record == 'открой дневник':
+        Commands.lms(self=record)
+
+    else:
+        raise ValueError
 
 def record_and_recognize_audio(*args: tuple):
     """
@@ -31,6 +39,20 @@ def record_and_recognize_audio(*args: tuple):
             print("Check your Internet Connection, please")
 
         return recognized_data
+
+
+class Commands():
+
+    def lms(self):
+        webbrowser.open('https://smartedu.hse.ru/')
+
+    def stop(self, text):
+        if text == 'стоп':
+            print('стоп')
+
+    def workout(self, exercise):
+        task = exercise[randint(0, len(exercise)-1)]
+        print(task)
 
 if __name__ == "__main__":
 

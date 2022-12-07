@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="00922d9d-0832-48de-baad-d2c133fc4d1c" name="Changes" comment="New functions added: Sonechka_command, random_exercise, Open, main">
-      <change afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+    <list default="true" id="00922d9d-0832-48de-baad-d2c133fc4d1c" name="Changes" comment="New_update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Artem.py" beforeDir="false" afterPath="$PROJECT_DIR$/Voice_helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Voice_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Voice_helper.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +56,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670312474143</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="New_update">
+      <created>1670340286374</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670340286374</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -73,6 +79,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="New functions added: Sonechka_command, random_exercise, Open, main" />
-    <option name="LAST_COMMIT_MESSAGE" value="New functions added: Sonechka_command, random_exercise, Open, main" />
+    <MESSAGE value="New_update" />
+    <option name="LAST_COMMIT_MESSAGE" value="New_update" />
   </component>
 </project>
