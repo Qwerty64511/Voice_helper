@@ -7,18 +7,22 @@ tools = {
 
 
 def dispatcher(record):
-    if record == 'открой lms':
-        Commands.lms(self=record)
+    try:
+        if record == 'открой lms':
+            Commands.lms(self=record)
 
-    if record == 'открой калькулятор':
-        subprocess.Popen('C:\\Windows\\System32\\calc.exe')
+        if record == 'открой калькулятор':
+            subprocess.Popen('C:\\Windows\\System32\\calc.exe')
 
-    if record == 'выдай упражнения':
-        exercise = ['Отжимания', 'подтягивания']
-        Commands.workout(self=record, exercise=exercise)
+        if record == 'выдай упражнения':
+            exercise = ['Отжимания', 'подтягивания']
+            Commands.workout(self=record, exercise=exercise)
 
-    else:
-        raise ValueError
+        else:
+            raise ValueError
+
+    except ValueError:
+        print('нормально говори дебил')
 
 
 def listner():
@@ -76,9 +80,6 @@ def start():
             print('нашёл команды')
             dispatcher(voice_input)
 
-        else:
-            working()
-
     if 'тесты' in voice_input:
         ...
 
@@ -104,4 +105,6 @@ def working():
                 print('Я не нашёл команду')
 
 
-start()
+if __name__ == "__main__":
+    while True:
+        start()
