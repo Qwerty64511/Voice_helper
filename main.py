@@ -1,16 +1,18 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import webbrowser
+from random import randint
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+class Commands():
 
+    def lms(self):
+        webbrowser.open('https://smartedu.hse.ru/')
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+    def stop(self, text):
+        if text == 'стоп':
+            print('стоп')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    def workout(self, exercise):
+        task = exercise[randint(0, len(exercise) - 1)]
+        value = randint(1, 20)
+
+        print(task, value)
