@@ -11,10 +11,10 @@ def dispatcher(record):
         if record == 'открой lms':
             Commands.lms(self=record)
 
-        if record == 'открой калькулятор':
+        elif record == 'открой калькулятор':
             subprocess.Popen('C:\\Windows\\System32\\calc.exe')
 
-        if record == 'выдай упражнения':
+        elif record == 'выдай упражнения':
             exercise = ['Отжимания', 'подтягивания']
             Commands.workout(self=record, exercise=exercise)
 
@@ -77,7 +77,7 @@ def start():
         voice_input = voice_input.replace('афанасий ', '')
 
         if len(voice_input) > 0:
-            print('нашёл команды')
+            print('Начинаю обработку')
             dispatcher(voice_input)
 
     if 'тесты' in voice_input:
