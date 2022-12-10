@@ -7,21 +7,33 @@ tools = {
 
 
 def dispatcher(record):
+    splited_record = record.split(' ')
     try:
         if record == 'открой lms':
             Commands.lms(self=record)
 
-        if record == 'открой калькулятор':
-            subprocess.Popen('C:\\Windows\\System32\\calc.exe')
-        if record == 'открой ютуб' or record == 'открой youtube':
+        elif record == 'открой калькулятор':
+            Commands.calc()
+
+        elif record == 'открой ютуб' or record == 'открой youtube':
             Commands.youtube()
 
+        elif record == 'открой почту':
+            Commands.mail()
+        
+        elif splited_record[0] == 'открой' and 'com' not in splited_record[1] and 'ru' not in splited_record[1]:
+            Commands.smart_find_app(splited_record[1])
 
-        if record == 'выдай упражнения':
+        elif splited_record[0] == 'открой':
+            Commands.smart_find_site(splited_record[1])
+
+        elif record == 'выдай упражнения':
             exercise = ['Отжимания', 'подтягивания']
             Commands.workout(self=record, exercise=exercise)
-        if record == 'меня зовут миша' or record =='меня зовут артём'or record =='меня зовут матвей':
+
+        elif record == 'меня зовут миша' or record =='меня зовут артём'or record =='меня зовут матвей':
             Commands.hello(name=record[11:])
+
         else:
             raise ValueError
 
