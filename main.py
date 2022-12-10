@@ -18,5 +18,9 @@ class Commands():
         print(task, value)
     def smart_find(self, string):
         pass
+
     def hello(name):
         print(f'Привет {name}')
+    def youtube():
+        webbrowser.open('https://www.youtube.com/')
+    
