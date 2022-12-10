@@ -5,6 +5,7 @@ import datetime
 import pyaudio
 import wave
 from Main import Commands
+import Voice_helper_tests
 exercise = ['Отжимания','Подтягивания','Приседания','Бег','Пресс']
 
 tools = {
@@ -24,6 +25,8 @@ def dispatcher(record):
             print("Сколько файлов вы хотите записать?")
             count = int(input())  # количество файло
             Commands.record_and_save_audio_file(self=record, number_of_records=count)
+        elif record == "открой рецепты":
+            Commands.data_base(self=record)
 
         else:
             raise ValueError
@@ -32,7 +35,7 @@ def dispatcher(record):
         print('нормально говори дебил')
 
 
-def listner():
+def listener():
     microphone = tools['microphone']
     recognizer = tools['recognizer']
 
@@ -48,6 +51,7 @@ def listner():
 
         except speech_recognition.WaitTimeoutError:
             print('check your microphone')
+
 
 
 def recognize(audio):
@@ -77,7 +81,7 @@ def start():
     tools['recognizer'] = recognizer
     tools['microphone'] = microphone
 
-    audio = listner()
+    audio = listener()
     voice_input = recognize(audio=audio).lower()
 
     if 'афанасий' in voice_input:
@@ -87,28 +91,19 @@ def start():
             dispatcher(voice_input)
 
     if 'тесты' in voice_input:
-        ...
+        with open("check_lms.wav") as file__check_lms:
+            test_lms = recognizer.recognize_google(file__check_lms, language="ru").lower()
+            Voice_helper_tests.MyTestCase.LMS_test_(test_lms)
+
+
+
+
+
 
 
 #       тут будут тесты.
 
 
-def working():
-    if __name__ == "__main__":
-
-        # инициализация инструментов распознавания и ввода речи
-        while True:
-            # старт записи речи с последующим выводом распознанной речи
-            audio = listner()
-            voice_input = recognize(audio=audio)
-
-            print(voice_input, '-- финальная расшифровка')
-
-            try:
-                dispatcher(voice_input)
-
-            except ValueError:
-                print('Я не нашёл команду')
 
 
 if __name__ == "__main__":

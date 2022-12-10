@@ -1,10 +1,9 @@
 import unittest
-
-
+from Voice_helper import dispatcher
+from Main import Commands
 class MyTestCase(unittest.TestCase):
-    def test_something(self):
-        self.assertEqual(True, False)  # add assertion here
+    def LMS_test_(self,test_lms):
+        self.assertEqual(dispatcher(test_lms),Commands.lms())  # add assertion here
 
 
-if __name__ == '__main__':
-    unittest.main()
+

@@ -5,7 +5,7 @@ import datetime
 import pyaudio
 import wave
 import pymysql
-
+import sqlite3 as sq
 class Commands():
 
     def lms(self):
@@ -59,12 +59,32 @@ class Commands():
             wf.setframerate(RATE)
             wf.writeframes(b''.join(frames))
             wf.close()
-    def data_base(self):
-        connection = pymysql.connect(
-            host='localhost',
-            user='Artem',
-            password='myCode',
-            database='',
-            charset='utf8mb4',
-            cursorclass=pymysql.cursors.DictCursor
-        )
+    def connection_with_data_base(self):
+        Recipes = []
+        with sq.connect("recipes.db") as connection:
+            Cursor = connection.cursor()
+
+            Cursor.execute("""CREATE TABLE IF NOT EXISTS recipes (
+                meal TEXT,
+                recipe TEXT,
+                cooking time INTEGER
+                
+                
+            )""")
+            print("Сколько рецептов хотите внести?")
+            n = int(input())
+            for i in range(n):
+                print("Введите название блюда")
+                Meal = input()
+                print("Введите рецепт")
+                Recipe = input()
+                print("Введите время приготовления")
+                Cooking_time = input()
+                tup = (Meal,Recipe,Cooking_time)
+                Recipes.append(tup)
+            Cursor.executemany("INSERT INTO recipes VALUES(?, ?, ?)",Recipes)
+
+
+            #Cursor.execute("""DELETE FROM recipes WHERE rowid == 1""")
+
+        print("Соединение успешно")
