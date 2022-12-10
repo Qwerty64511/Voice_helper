@@ -39,7 +39,6 @@ def listner():
             print('check your microphone')
 
 
-
 def recognize(audio):
     recognizer = tools['recognizer']
 
@@ -71,11 +70,19 @@ def start():
     voice_input = recognize(audio=audio).lower()
 
     if 'афанасий' in voice_input:
-        print('Перехожу в основной режим')
-        working()
+        voice_input = voice_input.replace('афанасий ', '')
+
+        if len(voice_input) > 0:
+            print('нашёл команды')
+            dispatcher(voice_input)
+
+        else:
+            working()
 
     if 'тесты' in voice_input:
         ...
+
+
 #       тут будут тесты.
 
 
