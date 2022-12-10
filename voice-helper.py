@@ -85,26 +85,6 @@ def start():
 
 
 #       тут будут тесты.
-
-
-def working():
-    if __name__ == "__main__":
-
-        # инициализация инструментов распознавания и ввода речи
-        while True:
-            # старт записи речи с последующим выводом распознанной речи
-            audio = listner()
-            voice_input = recognize(audio=audio)
-
-            print(voice_input, '-- финальная расшифровка')
-
-            try:
-                dispatcher(voice_input)
-
-            except ValueError:
-                print('Я не нашёл команду')
-
-
 if __name__ == "__main__":
     while True:
         start()
