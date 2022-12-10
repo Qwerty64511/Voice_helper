@@ -91,9 +91,8 @@ def start():
             dispatcher(voice_input)
 
     if 'тесты' in voice_input:
-        with open("check_lms.wav") as file__check_lms:
-            test_lms = recognizer.recognize_google(file__check_lms, language="ru").lower()
-            Voice_helper_tests.MyTestCase.LMS_test_(test_lms)
+        file__check_lms = speech_recognition.AudioFile('check_lms.wav')
+        Voice_helper_tests.MyTestCase.LMS_test_(self=Voice_helper_tests.MyTestCase,test_lms=file__check_lms)
 
 
 

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="00922d9d-0832-48de-baad-d2c133fc4d1c" name="Changes" comment="New_architecture">
+    <list default="true" id="00922d9d-0832-48de-baad-d2c133fc4d1c" name="Changes" comment="Test func added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Voice_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Voice_helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Voice_helper_tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/Voice_helper_tests.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670688213315</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Test func added">
+      <created>1670696660895</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670696660895</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -153,6 +158,7 @@
     <MESSAGE value="New functions added: Sonechka_command, random_exercise, Open, main" />
     <MESSAGE value="New_update" />
     <MESSAGE value="New_architecture" />
-    <option name="LAST_COMMIT_MESSAGE" value="New_architecture" />
+    <MESSAGE value="Test func added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test func added" />
   </component>
 </project>
