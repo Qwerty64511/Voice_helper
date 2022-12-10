@@ -1,6 +1,10 @@
 import speech_recognition
-from main import Commands
+from main import Commands, voice
 import subprocess
+import pyttsx3
+
+engine = pyttsx3.init()
+engine.setProperty('rate', 200)
 
 tools = {
 }
@@ -8,13 +12,13 @@ tools = {
 
 def dispatcher(record):
     try:
-        if record == 'открой lms':
+        if record == 'открой дневник':
             Commands.lms(self=record)
 
-        if record == 'открой калькулятор':
+        elif record == 'открой калькулятор':
             subprocess.Popen('C:\\Windows\\System32\\calc.exe')
 
-        if record == 'выдай упражнения':
+        elif record == 'выдай упражнения':
             exercise = ['Отжимания', 'подтягивания']
             Commands.workout(self=record, exercise=exercise)
 
@@ -22,7 +26,7 @@ def dispatcher(record):
             raise ValueError
 
     except ValueError:
-        print('нормально говори дебил')
+        voice('нормально говори дебил')
 
 
 def listner():
@@ -35,12 +39,12 @@ def listner():
         recognizer.adjust_for_ambient_noise(microphone, duration=2)
 
         try:
-            print("Listening...")
+            voice("я слушаю вас")
             audio = recognizer.listen(microphone, 5, 5)
             return audio
 
         except speech_recognition.WaitTimeoutError:
-            print('check your microphone')
+            voice('проверьте свой микрофон')
 
 
 def recognize(audio):
@@ -50,7 +54,7 @@ def recognize(audio):
     # использование online-распознавания через Google
 
     try:
-        print("Started recognition...")
+        voice("Начинаю распознование")
         recognized_data = recognizer.recognize_google(audio, language="ru").lower()
 
     except speech_recognition.UnknownValueError:
@@ -58,7 +62,7 @@ def recognize(audio):
 
     # в случае проблем с доступом в Интернет происходит выброс ошибки
     except speech_recognition.RequestError:
-        print("Check your Internet Connection, please")
+        voice("Проверьте доступ к интернету")
 
     return recognized_data
 
@@ -77,7 +81,6 @@ def start():
         voice_input = voice_input.replace('афанасий ', '')
 
         if len(voice_input) > 0:
-            print('нашёл команды')
             dispatcher(voice_input)
 
     if 'тесты' in voice_input:
