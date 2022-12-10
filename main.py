@@ -16,3 +16,7 @@ class Commands():
         value = randint(1, 20)
 
         print(task, value)
+    def smart_find(self, string):
+        pass
+    def hello(name):
+        print(f'Привет {name}')
