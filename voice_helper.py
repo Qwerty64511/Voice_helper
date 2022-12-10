@@ -13,6 +13,9 @@ def dispatcher(record):
 
         if record == 'открой калькулятор':
             subprocess.Popen('C:\\Windows\\System32\\calc.exe')
+        if record == 'открой ютуб' or record == 'открой youtube':
+            Commands.youtube()
+
 
         if record == 'выдай упражнения':
             exercise = ['Отжимания', 'подтягивания']
