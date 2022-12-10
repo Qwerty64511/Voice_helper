@@ -11,8 +11,8 @@ class Commands():
     def stop(self, text):
         if text == 'стоп':
             print('стоп')
+            
     def calc():
-        # subprocess.Popen('C:\\Windows\\System32\\calc.exe')
         subprocess.Popen('calc.exe')
 
     def workout(self, exercise):
@@ -22,7 +22,7 @@ class Commands():
         print(task, value)
 
     def smart_find_app(name):
-        subprocess.Popen(name)
+        subprocess.call(name)
 
     def smart_find_site(name):
         webbrowser.open(f'https://{name}')
@@ -34,4 +34,6 @@ class Commands():
         webbrowser.open('https://youtube.com/')
     def mail():
         webbrowser.open('https://mail.yandex.ru/')
+    def github():
+        webbrowser.open('https://github.com/')
     

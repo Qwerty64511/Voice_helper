@@ -17,6 +17,9 @@ def dispatcher(record):
 
         elif record == 'открой ютуб' or record == 'открой youtube':
             Commands.youtube()
+            
+        elif record == 'открой гитхаб' or record == 'github':
+            Commands.github()
 
         elif record == 'открой почту':
             Commands.mail()
