@@ -4,14 +4,17 @@ import subprocess
 
 
 class Commands():
-
+    """
+    Данный класс отвечает за выполнение команд.
+    КАждый его метод выполняет определённую команду
+    """
     def lms(self):
         webbrowser.open('https://smartedu.hse.ru/')
 
     def stop(self, text):
         if text == 'стоп':
             print('стоп')
-    def calc():
+    def calc(self):
         # subprocess.Popen('C:\\Windows\\System32\\calc.exe')
         subprocess.Popen('calc.exe')
 
@@ -30,8 +33,8 @@ class Commands():
     def hello(name):
         print(f'Привет {name}')
 
-    def youtube():
+    def youtube(self):
         webbrowser.open('https://youtube.com/')
-    def mail():
+    def mail(self):
         webbrowser.open('https://mail.yandex.ru/')
     

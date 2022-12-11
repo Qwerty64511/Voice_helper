@@ -7,6 +7,11 @@ tools = {
 
 
 def dispatcher(record):
+    """
+    данная функция отвечает за обработку поступивших команд
+    :param record: record - расшифровка голосовой команды
+    :return: данная функция ничего не возвращает. Она вызывает класс Commands в котором происходит выполнение команд
+    """
     splited_record = record.split(' ')
     try:
         if record == 'открой lms':
@@ -42,6 +47,10 @@ def dispatcher(record):
 
 
 def listner():
+    """
+    Данная функция записывает голосовую команду
+    :return: данная функция возвращает аудиофайл
+    """
     microphone = tools['microphone']
     recognizer = tools['recognizer']
 
@@ -60,6 +69,11 @@ def listner():
 
 
 def recognize(audio):
+    """
+    данная функция распознаёт принимаемый аудиофайл и занимается переводом звука в текст
+    :param audio: принимает аудиофайл
+    :return: возвращает расшифровку команды
+    """
     recognizer = tools['recognizer']
 
     recognized_data = ""
@@ -80,6 +94,11 @@ def recognize(audio):
 
 
 def start():
+    """
+    Данная функция является основной в нашем проекте. Она отвечает за навигацию по всему проекту и первичную обработку
+    поступивших команд
+    :return: Она ничего не возвращает, лишь отвечает за навигацию
+    """
     recognizer = speech_recognition.Recognizer()
     microphone = speech_recognition.Microphone()
 
