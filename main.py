@@ -11,7 +11,10 @@ def voice(text):
 
 
 class Commands():
-
+    """
+    Данный класс отвечает за выполнение команд.
+    КАждый его метод выполняет определённую команду
+    """
     def lms(self):
         webbrowser.open('https://smartedu.hse.ru/')
         voice('учитесь на здоровье')
