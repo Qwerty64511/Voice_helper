@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="00922d9d-0832-48de-baad-d2c133fc4d1c" name="Changes" comment="New functions added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Voice_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Voice_helper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Voice_helper_tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/Voice_helper_tests.py" afterDir="false" />
     </list>
@@ -47,7 +48,7 @@
       <recent name="C:\Users\User\PycharmProjects\Voice_Assistant" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests in Voice_helper_tests.py">
+  <component name="RunManager" selected="Python tests.Python tests for Voice_helper_tests.MyTestCase.test_LMS">
     <configuration name="File_record_and_output" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Voice_Assistant" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -134,8 +135,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests in Voice_helper_tests.py" />
         <item itemvalue="Python tests.Python tests for Voice_helper_tests.MyTestCase.test_LMS" />
+        <item itemvalue="Python tests.Python tests in Voice_helper_tests.py" />
         <item itemvalue="Python.Voice_helper" />
         <item itemvalue="Python tests.Python tests for Voice_helper_tests.MyTestCase" />
         <item itemvalue="Python.File_record_and_output" />
@@ -207,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670769458629</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="New functions added">
+      <created>1670770886316</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1670770886316</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

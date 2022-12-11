@@ -18,14 +18,7 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(dispatcher(file_test_date_and_time),True)
 
 
-    def test_lms_wrong(self):
-        file__check_lms_wrong = file_for_test("")
-        self.assertEqual(file__check_lms_wrong, False)
 
-
-    def calc(self):
-        file__open_calc = file_for_test("")
-        self.assertEqual(file__open_calc, True)
 
 
 if __name__ == "__main__":

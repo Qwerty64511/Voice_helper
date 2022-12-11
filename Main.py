@@ -26,6 +26,7 @@ class Commands():
         webbrowser.open('https://smartedu.hse.ru/')
         voice('учитесь на здоровье')
 
+
     def stop(self, text):
         if text == 'стоп':
             print('стоп')
