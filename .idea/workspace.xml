@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="00922d9d-0832-48de-baad-d2c133fc4d1c" name="Changes" comment="Test_date_and_time and test_workout added">
+    <list default="true" id="00922d9d-0832-48de-baad-d2c133fc4d1c" name="Changes" comment="New functions added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Voice_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Voice_helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Voice_helper_tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/Voice_helper_tests.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +47,7 @@
       <recent name="C:\Users\User\PycharmProjects\Voice_Assistant" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Voice_helper">
+  <component name="RunManager" selected="Python tests.Python tests in Voice_helper_tests.py">
     <configuration name="File_record_and_output" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Voice_Assistant" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -104,6 +104,20 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for Voice_helper_tests.MyTestCase.test_LMS" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Voice_Assistant" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;Voice_helper_tests.MyTestCase.test_LMS&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="Python tests in Voice_helper_tests.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Voice_Assistant" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -120,8 +134,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Voice_helper" />
         <item itemvalue="Python tests.Python tests in Voice_helper_tests.py" />
+        <item itemvalue="Python tests.Python tests for Voice_helper_tests.MyTestCase.test_LMS" />
+        <item itemvalue="Python.Voice_helper" />
         <item itemvalue="Python tests.Python tests for Voice_helper_tests.MyTestCase" />
         <item itemvalue="Python.File_record_and_output" />
       </list>
@@ -185,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670751289867</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="New functions added">
+      <created>1670769458629</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1670769458629</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -205,6 +227,7 @@
     <MESSAGE value="New_architecture" />
     <MESSAGE value="Test func added" />
     <MESSAGE value="Test_date_and_time and test_workout added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test_date_and_time and test_workout added" />
+    <MESSAGE value="New functions added" />
+    <option name="LAST_COMMIT_MESSAGE" value="New functions added" />
   </component>
 </project>

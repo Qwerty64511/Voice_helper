@@ -7,15 +7,25 @@ from Voice_helper import exercises
 class MyTestCase(unittest.TestCase):
     def test_LMS(self):
         file__check_lms = file_for_test("check_lms.wav")
-        self.assertEqual(dispatcher(file__check_lms),Commands.lms(self=file__check_lms) )
+        self.assertEqual(dispatcher(file__check_lms),True)
 
     def test_workout(self):
         file_test_workout = file_for_test("check_workout.wav")
-        self.assertEqual(dispatcher(file_test_workout),Commands.workout(self=file_test_workout,exercise=exercises))
+        self.assertEqual(dispatcher(file_test_workout),True)
 
     def test_date_and_time(self):
         file_test_date_and_time = file_for_test("check_date_and_time.wav")
-        self.assertEqual(dispatcher(file_test_date_and_time),Commands.date_and_time(self=file_test_date_and_time))
+        self.assertEqual(dispatcher(file_test_date_and_time),True)
+
+
+    def test_lms_wrong(self):
+        file__check_lms_wrong = file_for_test("")
+        self.assertEqual(file__check_lms_wrong, False)
+
+
+    def calc(self):
+        file__open_calc = file_for_test("")
+        self.assertEqual(file__open_calc, True)
 
 
 if __name__ == "__main__":

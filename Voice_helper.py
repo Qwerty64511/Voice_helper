@@ -64,9 +64,11 @@ def dispatcher(record):
 
         else:
             raise ValueError
+        return True
 
     except ValueError:
         voice('нормально говори дебил')
+        return False
 
 
 def listner():
