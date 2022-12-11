@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="00922d9d-0832-48de-baad-d2c133fc4d1c" name="Changes" comment="Test func added">
+    <list default="true" id="00922d9d-0832-48de-baad-d2c133fc4d1c" name="Changes" comment="Test_date_and_time and test_workout added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Voice_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Voice_helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Voice_helper_tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/Voice_helper_tests.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +47,7 @@
       <recent name="C:\Users\User\PycharmProjects\Voice_Assistant" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests in Voice_helper_tests.py">
+  <component name="RunManager" selected="Python.Voice_helper">
     <configuration name="File_record_and_output" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Voice_Assistant" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -121,8 +120,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests in Voice_helper_tests.py" />
         <item itemvalue="Python.Voice_helper" />
+        <item itemvalue="Python tests.Python tests in Voice_helper_tests.py" />
         <item itemvalue="Python tests.Python tests for Voice_helper_tests.MyTestCase" />
         <item itemvalue="Python.File_record_and_output" />
       </list>
@@ -179,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670698067048</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Test_date_and_time and test_workout added">
+      <created>1670751289867</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1670751289867</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,6 +204,7 @@
     <MESSAGE value="New_update" />
     <MESSAGE value="New_architecture" />
     <MESSAGE value="Test func added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test func added" />
+    <MESSAGE value="Test_date_and_time and test_workout added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test_date_and_time and test_workout added" />
   </component>
 </project>

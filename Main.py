@@ -1,33 +1,62 @@
-import speech_recognition
 import webbrowser
 from random import randint
+import subprocess
+import pyttsx3
 import datetime
 import pyaudio
 import wave
 import pymysql
 import sqlite3 as sq
+
+engine = pyttsx3.init()
+
+
+def voice(text):
+    engine.say(text)
+    engine.runAndWait()
+
+
 class Commands():
+    """
+    Данный класс отвечает за выполнение команд.
+    КАждый его метод выполняет определённую команду
+    """
 
     def lms(self):
-        try:
-            webbrowser.open('https://smartedu.hse.ru/')
-            return True
-        except:
-            return False
+        webbrowser.open('https://smartedu.hse.ru/')
+        voice('учитесь на здоровье')
 
-    def stop(self):
-        pass
+    def stop(self, text):
+        if text == 'стоп':
+            print('стоп')
+
+    def calc(self):
+        subprocess.Popen('calc.exe')
 
     def workout(self, exercise):
-        try:
-            task = exercise[randint(0, len(exercise) - 1)]
-            count = randint(10, 40)
-            print(task, 'количество: ', count)
-            return True
-        except:
-            return False
+        task = exercise[randint(0, len(exercise) - 1)]
+        value = randint(1, 20)
 
+        voice(task + str(value))
 
+    def smart_find_app(name):
+        subprocess.call(name)
+
+    def smart_find_site(name):
+        webbrowser.open(f'https://{name}')
+
+    def hello(name):
+        voice(f'Привет {name}')
+
+    def youtube(self):
+        webbrowser.open('https://youtube.com/')
+
+    def mail(self):
+        webbrowser.open('https://mail.yandex.ru/')
+
+    def github(self):
+        webbrowser.open('https://github.com/')
+    #################
 
     def Death_Note(self):
         webbrowser.open('https://m.wcostream.net/anime/death-note')
@@ -43,8 +72,9 @@ class Commands():
         except:
             return False
 
-    def record_and_save_audio_file(self,number_of_records, CHUNK=1024, FORMAT=pyaudio.paInt16, CHANNELS=2, RATE=44100,
+    def record_and_save_audio_file(self, number_of_records, CHUNK=1024, FORMAT=pyaudio.paInt16, CHANNELS=2, RATE=44100,
                                    RECORD_SECONDS=5):
+
         for k in range(number_of_records):
             print("Введите название файла")
             WAVE_OUTPUT_FILENAME = input()
@@ -56,6 +86,7 @@ class Commands():
                             input=True,
                             input_device_index=1,
                             frames_per_buffer=CHUNK)
+
             print("recording")
             frames = []
             for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
@@ -72,33 +103,78 @@ class Commands():
             wf.setframerate(RATE)
             wf.writeframes(b''.join(frames))
             wf.close()
-    def connection_with_data_base(self):
-        Recipes = []
-        with sq.connect("recipes.db") as connection:
-            Cursor = connection.cursor()
 
-            Cursor.execute("""CREATE TABLE IF NOT EXISTS recipes (
-                meal TEXT,
-                recipe TEXT,
-                cooking time INTEGER
-                
-                
-            )""")
-            print("Сколько рецептов хотите внести?")
-            n = int(input())
-            for i in range(n):
-                print("Введите название блюда")
-                Meal = input()
-                print("Введите рецепт")
-                Recipe = input()
-                print("Введите время приготовления")
-                Cooking_time = input()
-                tup = (Meal,Recipe,Cooking_time)
-                Recipes.append(tup)
-            Cursor.executemany("INSERT INTO recipes VALUES(?, ?, ?)",Recipes)
+    def delete_recipe(self):
+        meals = []
+        try:
+            with sq.connect("recipes.db") as connection:
+                Cursor = connection.cursor()
+                print("Какой рецепт хотите удалить?")
+                recipe_for_delete = input()
+                Cursor.execute("SELECT meal FROM recipes")
+                row = Cursor.fetchall()
+                for element in range(len(row)):
+                    meals.append(row[element])
 
+                if recipe_for_delete not in meals:
+                    print("Такого рецепта нет")
 
-            #Cursor.execute("""DELETE FROM recipes WHERE rowid == 1""")
+                for element in range(len(row)):
+                    if recipe_for_delete in row[element]:
+                        print("Рецепт найден")
+                        id = element + 1
+                        Cursor.execute(f"""DELETE FROM recipes WHERE rowid == {id}""")
+                        print("Рецепт успешно удален")
 
-        print("Соединение успешно")
+        except:
+            print("Произошла какая-то ошибка")
 
+    def add_recipes(self):
+        try:
+            Recipes = []
+            with sq.connect("recipes.db") as connection:
+                Cursor = connection.cursor()
+
+                # Cursor.execute("""CREATE TABLE IF NOT EXISTS recipes (
+                # meal TEXT,
+                # recipe TEXT,
+                # cooking time INTEGER
+                # )""")
+                print("Сколько рецептов хотите внести?")
+                n = int(input())
+                for i in range(n):
+                    print("Введите название блюда")
+                    Meal = input()
+                    print("Введите рецепт")
+                    Recipe = input()
+                    print("Введите время приготовления")
+                    Cooking_time = input()
+                    tup = (Meal, Recipe, Cooking_time)
+                    Recipes.append(tup)
+                Cursor.executemany("INSERT INTO recipes VALUES(?, ?, ?)", Recipes)
+                if len(Recipes) == 1:
+                    print("Рецепт успешно добавлен")
+                else:
+                    print("Рецепты успешно добавлены")
+        except:
+            print("Произошла какая-то ошибка")
+
+    def print_recipes(self):
+        meals = []
+        try:
+            with sq.connect("recipes.db") as connection:
+                Cursor = connection.cursor()
+                print("Рецепт какого блюда хотите увидеть?")
+                rec = input()
+                Cursor.execute("SELECT meal,recipe,cooking time FROM recipes")
+                row = Cursor.fetchall()
+                print(row)
+                for meal in range(len(row)):
+                    meals.append(row[meal][0])
+                    if rec in row[meal][0]:
+                        print(row[meal][0], row[meal][1], row[meal][2])
+
+                if rec not in meals:
+                    print("Такого блюда нет")
+        except:
+            print("Произошла какая-то ошибка")
