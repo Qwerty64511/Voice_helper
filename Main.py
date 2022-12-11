@@ -9,26 +9,39 @@ import sqlite3 as sq
 class Commands():
 
     def lms(self):
-        webbrowser.open('https://smartedu.hse.ru/')
-    def stop(self, text):
-        if text == 'стоп':
-            print('стоп')
+        try:
+            webbrowser.open('https://smartedu.hse.ru/')
+            return True
+        except:
+            return False
+
+    def stop(self):
+        pass
 
     def workout(self, exercise):
-        task = exercise[randint(0, len(exercise) - 1)]
-        count = randint(10, 40)
-        print(task, 'количество: ', count)
+        try:
+            task = exercise[randint(0, len(exercise) - 1)]
+            count = randint(10, 40)
+            print(task, 'количество: ', count)
+            return True
+        except:
+            return False
+
 
 
     def Death_Note(self):
         webbrowser.open('https://m.wcostream.net/anime/death-note')
 
-    def data_and_time(self):
-        date_object = str(datetime.datetime.now())
-        lst = date_object.split(" ")
-        date = lst[0].split("-")
-        time = lst[1].split(":")
-        print("сегодня", date[2], date[1], date[0], "время", time[0], time[1])
+    def date_and_time(self):
+        try:
+            date_object = str(datetime.datetime.now())
+            lst = date_object.split(" ")
+            date = lst[0].split("-")
+            time = lst[1].split(":")
+            print("сегодня", date[2], date[1], date[0], "время", time[0], time[1])
+            return True
+        except:
+            return False
 
     def record_and_save_audio_file(self,number_of_records, CHUNK=1024, FORMAT=pyaudio.paInt16, CHANNELS=2, RATE=44100,
                                    RECORD_SECONDS=5):
@@ -88,3 +101,4 @@ class Commands():
             #Cursor.execute("""DELETE FROM recipes WHERE rowid == 1""")
 
         print("Соединение успешно")
+

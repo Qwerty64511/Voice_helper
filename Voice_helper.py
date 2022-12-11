@@ -6,7 +6,7 @@ import pyaudio
 import wave
 from Main import Commands
 import Voice_helper_tests
-exercise = ['Отжимания','Подтягивания','Приседания','Бег','Пресс']
+exercises = ['Отжимания','Подтягивания','Приседания','Бег','Пресс']
 
 tools = {
 }
@@ -16,9 +16,9 @@ def dispatcher(record):
         if record == 'открой дневник':
             Commands.lms(self=record)
         elif record == 'выдай упражнения':
-            Commands.workout(self=record, exercise=exercise)
+            Commands.workout(self=record, exercise=exercises)
         elif record == 'который час':
-            Commands.data_and_time(self=record)
+            Commands.date_and_time(self=record)
         elif record == 'открой тетрадь смерти':
             Commands.Death_Note(self=record)
         elif record == 'хочу записать файл':
@@ -28,11 +28,15 @@ def dispatcher(record):
         elif record == "открой рецепты":
             Commands.data_base(self=record)
 
+
+
         else:
             raise ValueError
+        return True
 
     except ValueError:
         print('нормально говори дебил')
+        return False
 
 
 def listener():
@@ -72,8 +76,12 @@ def recognize(audio):
         print("Check your Internet Connection, please")
 
     return recognized_data
-
-
+def file_for_test(audio_file):
+        r = speech_recognition.Recognizer()
+        with speech_recognition.AudioFile(audio_file) as source:
+            audio = r.listen(source)
+            file = r.recognize_google(audio, language='RU').lower()
+        return file
 def start():
     recognizer = speech_recognition.Recognizer()
     microphone = speech_recognition.Microphone()
@@ -89,20 +97,6 @@ def start():
 
         if len(voice_input) > 0:
             dispatcher(voice_input)
-
-    if 'тесты' in voice_input:
-        file__check_lms = speech_recognition.AudioFile('check_lms.wav')
-        Voice_helper_tests.MyTestCase.LMS_test_(self=Voice_helper_tests.MyTestCase,test_lms=file__check_lms)
-
-
-
-
-
-
-
-#       тут будут тесты.
-
-
 
 
 if __name__ == "__main__":
