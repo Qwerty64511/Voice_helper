@@ -1,6 +1,9 @@
 import speech_recognition
-from main import Commands
-import subprocess
+from main import Commands, voice
+import pyttsx3
+
+engine = pyttsx3.init()
+engine.setProperty('rate', 200)
 
 tools = {
 }
@@ -9,7 +12,7 @@ tools = {
 def dispatcher(record):
     splited_record = record.split(' ')
     try:
-        if record == 'открой lms':
+        if record == 'открой lms' or record == 'открой лмс':
             Commands.lms(self=record)
 
         elif record == 'открой калькулятор':
@@ -41,7 +44,7 @@ def dispatcher(record):
             raise ValueError
 
     except ValueError:
-        print('нормально говори дебил')
+        voice('нормально говори дебил')
 
 
 def listner():
