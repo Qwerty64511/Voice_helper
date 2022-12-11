@@ -115,11 +115,16 @@ def start():
             print('нашёл команды')
             dispatcher(voice_input)
 
-    if 'тесты' in voice_input:
+    elif 'тесты' in voice_input:
         ...
 
+    if 'стоп' in voice_input:
+        return 0
 
-#       тут будут тесты.
-if __name__ == "__main__":
-    while True:
+    else:
         start()
+
+# #       тут будут тесты.
+# if __name__ == "__main__":
+#     while True:
+start()
