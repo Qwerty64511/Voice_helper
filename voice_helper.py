@@ -1,6 +1,11 @@
 import speech_recognition
 from main import Commands, voice
 import pyttsx3
+import datetime
+import pyaudio
+import wave
+import Voice_helper_tests
+
 
 engine = pyttsx3.init()
 engine.setProperty('rate', 200)
@@ -28,6 +33,20 @@ def dispatcher(record):
             
         elif record == 'открой гитхаб' or record == 'github':
             Commands.github()
+        
+        elif record == 'хочу записать файл':
+            print("Сколько файлов вы хотите записать?")
+            count = int(input())  # количество файло
+            Commands.record_and_save_audio_file(self=record, number_of_records=count)
+        
+        elif record == 'который час':
+            Commands.date_and_time(self=record)
+        
+        elif record == 'открой дневник':
+            Commands.lms(self=record)
+
+        elif record == "открой рецепты":
+            Commands.data_base(self=record)
 
         elif record == 'открой почту':
             Commands.mail()
@@ -98,6 +117,12 @@ def recognize(audio):
 
     return recognized_data
 
+def file_for_test(audio_file):
+        r = speech_recognition.Recognizer()
+        with speech_recognition.AudioFile(audio_file) as source:
+            audio = r.listen(source)
+            file = r.recognize_google(audio, language='RU').lower()
+        return file
 
 def start():
     """
@@ -130,8 +155,4 @@ def start():
     else:
         start()
 
-
-#       тут будут тесты.
-# if __name__ == "__main__":
-#     while True:
 start()
