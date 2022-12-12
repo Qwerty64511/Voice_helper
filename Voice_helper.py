@@ -13,6 +13,7 @@ tools = {
 exercises = ["Подтягивания","Отжимания","Пресс","Бег","Приседания"]
 def dispatcher(record):
     """
+    By Matvey, Artem, Michail
     данная функция отвечает за обработку поступивших команд
     :param record: record - расшифровка голосовой команды
     :return: данная функция ничего не возвращает. Она вызывает класс Commands в котором происходит выполнение команд
@@ -32,9 +33,11 @@ def dispatcher(record):
             Commands.github()
 
         elif record == 'хочу записать файл':
-            print("Сколько файлов вы хотите записать?")
-            count = int(input())  # количество файло
-            Commands.record_and_save_audio_file(self=record, number_of_records=count)
+            voice("Сколько файлов вы хотите записать?")
+            count = int(input())  # количество файлов
+            voice("Сколько секунд будет длиться аудизапись?")
+            time_of_recording = int(input()) #
+            Commands.record_and_save_audio_file(self=record, number_of_records=count,RECORD_SECONDS=time_of_recording)
 
         elif record == 'который час':
             Commands.date_and_time(self=record)
@@ -44,6 +47,8 @@ def dispatcher(record):
 
         elif record == "открой рецепты":
             Commands.data_base(self=record)
+        elif record == "хочу удалить рецепт":
+            Commands.delete_recipe()
 
         elif record == 'открой почту':
             Commands.mail()
@@ -65,12 +70,13 @@ def dispatcher(record):
         return True
 
     except ValueError:
-        voice('нормально говори дебил')
+        voice('нормально говори')
         return False
 
 
 def listner():
     """
+    By Matvey
     Данная функция записывает голосовую команду
     :return: данная функция возвращает аудиофайл
     """
@@ -93,6 +99,7 @@ def listner():
 
 def recognize(audio):
     """
+    By Matvey
     данная функция распознаёт принимаемый аудиофайл и занимается переводом звука в текст
     :param audio: принимает аудиофайл
     :return: возвращает расшифровку команды
@@ -118,7 +125,8 @@ def recognize(audio):
 
 def file_for_test(audio_file):
     """
-    Данная функция используется для перевода аидио файла в текст. Необходимо для тестов.
+    By Artem
+    Данная функция используется для перевода аудио файла в текст. Необходимо для тестов.
     :param audio_file: принимает аудио файл
     :return: возвращает текст аудио файла
     """
@@ -131,6 +139,7 @@ def file_for_test(audio_file):
 
 def start():
     """
+    By Matvey
     Данная функция является основной в нашем проекте. Она отвечает за навигацию по всему проекту и первичную обработку
     поступивших команд
     :return: Она ничего не возвращает, лишь отвечает за навигацию
@@ -154,6 +163,5 @@ def start():
 
     else:
         start()
-
 
 start()

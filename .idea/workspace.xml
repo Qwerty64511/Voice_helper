@@ -48,7 +48,7 @@
       <recent name="C:\Users\User\PycharmProjects\Voice_Assistant" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for Voice_helper_tests.MyTestCase.test_LMS">
+  <component name="RunManager" selected="Python.Voice_helper">
     <configuration name="File_record_and_output" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Voice_Assistant" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -135,10 +135,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests for Voice_helper_tests.MyTestCase.test_LMS" />
-        <item itemvalue="Python tests.Python tests in Voice_helper_tests.py" />
         <item itemvalue="Python.Voice_helper" />
         <item itemvalue="Python tests.Python tests for Voice_helper_tests.MyTestCase" />
+        <item itemvalue="Python tests.Python tests for Voice_helper_tests.MyTestCase.test_LMS" />
+        <item itemvalue="Python tests.Python tests in Voice_helper_tests.py" />
         <item itemvalue="Python.File_record_and_output" />
       </list>
     </recent_temporary>
@@ -215,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670770886316</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="New functions added">
+      <created>1670771785461</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1670771785461</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
