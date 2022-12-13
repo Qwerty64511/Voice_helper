@@ -4,13 +4,16 @@ import pyttsx3
 import datetime
 import pyaudio
 import wave
+
 engine = pyttsx3.init()
 engine.setProperty('rate', 200)
 
 tools = {
 }
 
-exercises = ["Подтягивания","Отжимания","Пресс","Бег","Приседания"]
+exercises = ["Подтягивания", "Отжимания", "Пресс", "Бег", "Приседания"]
+
+
 def dispatcher(record):
     """
     By Matvey, Artem, Michail
@@ -18,40 +21,56 @@ def dispatcher(record):
     :param record: record - расшифровка голосовой команды
     :return: данная функция ничего не возвращает. Она вызывает класс Commands в котором происходит выполнение команд
     """
+
     splited_record = record.split(' ')
     try:
         if record == 'открой lms' or record == 'открой лмс':
             Commands.lms(self=record)
 
         elif record == 'открой калькулятор':
-            Commands.calc()
+            Commands.calc(self=record)
 
         elif record == 'открой ютуб' or record == 'открой youtube':
-            Commands.youtube()
+            Commands.youtube(self=record)
 
         elif record == 'открой гитхаб' or record == 'github':
-            Commands.github()
+            Commands.github(self=record)
 
-        elif record == 'хочу записать файл':
+        elif record == 'запиши файл':
             voice("Сколько файлов вы хотите записать?")
             count = int(input())  # количество файлов
+
             voice("Сколько секунд будет длиться аудизапись?")
-            time_of_recording = int(input()) #
-            Commands.record_and_save_audio_file(self=record, number_of_records=count,RECORD_SECONDS=time_of_recording)
+
+            time_of_recording = int(input())  # время записи в секундах
+            Commands.record_and_save_audio_file(self=record, number_of_records=count, RECORD_SECONDS=time_of_recording)
 
         elif record == 'который час':
-            Commands.date_and_time(self=record)
+            Commands.show_time(self=record)
 
-        elif record == 'открой дневник':
-            Commands.lms(self=record)
+        elif record == 'какой сегодня день':
+            Commands.date(self=record)
 
-        elif record == "открой рецепты":
-            Commands.data_base(self=record)
-        elif record == "хочу удалить рецепт":
-            Commands.delete_recipe()
+        elif record == "создай книгу рецептов":
+            Commands.create_recipe_book(self=record)
+
+        elif record == "добавь рецепт":
+            Commands.add_recipes(self=record)
+
+        elif record == "удали рецепт":
+            Commands.delete_recipe(self=record)
+
+        elif record == "скажи рецепт":
+            Commands.print_recipes(self=record)
+
+        elif record == 'удали книгу рецептов':
+            Commands.delete_table(self=record)
+
+        elif record == 'открой тетрадь смерти':
+            Commands.Death_Note(self=record)
 
         elif record == 'открой почту':
-            Commands.mail()
+            Commands.mail(self=record)
 
         elif splited_record[0] == 'открой' and 'com' not in splited_record[1] and 'ru' not in splited_record[1]:
             Commands.smart_find_app(splited_record[1])
@@ -70,7 +89,7 @@ def dispatcher(record):
         return True
 
     except ValueError:
-        voice('нормально говори')
+        voice('Я не нашел команду или не расслышал вас, повторите пожалуйста свой запрос')
         return False
 
 
@@ -130,10 +149,13 @@ def file_for_test(audio_file):
     :param audio_file: принимает аудио файл
     :return: возвращает текст аудио файла
     """
+
     r = speech_recognition.Recognizer()
+
     with speech_recognition.AudioFile(audio_file) as source:
         audio = r.listen(source)
         text = r.recognize_google(audio, language='RU').lower()
+
     return text
 
 
@@ -160,8 +182,8 @@ def start():
             dispatcher(voice_input)
     if 'стоп' in voice_input:
         return 0
-
     else:
         start()
 
-start()
+# Чтобы запустить тесты, необходимо задокументрировать start() на след. строчке
+# start()

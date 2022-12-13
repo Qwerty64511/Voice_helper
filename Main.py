@@ -1,12 +1,17 @@
 import webbrowser
+
 from random import randint
 import subprocess
 import pyttsx3
-import datetime
+
 import pyaudio
 import wave
+
 import pymysql
 import sqlite3 as sq
+
+import time
+import datetime
 
 engine = pyttsx3.init()
 
@@ -33,7 +38,7 @@ class Commands():
 
     def calc(self):
         '''
-        by Matvey
+        by Michail
         Данная функция открывает калькулятор
         :return: None
         '''
@@ -73,7 +78,7 @@ class Commands():
         Функция, осуществляющее приветствие
         :return: None
         '''
-        voice(f'Привет {name}')
+        voice(f'Здравствуйте {name}')
 
     def youtube(self):
         '''
@@ -107,28 +112,39 @@ class Commands():
         '''
         webbrowser.open('https://m.wcostream.net/anime/death-note')
 
-    def date_and_time(self):
+    def show_time(self):
         '''
         By Artem
-        Функция, показывающая текущую дату и текущее время
+        Функция, показывающая текущее время
         :return: None
         '''
-        try:
-            date_object = str(datetime.datetime.now())
-            lst = date_object.split(" ")
-            date = lst[0].split("-")
-            time = lst[1].split(":")
-            voice("сегодня", str(date[2]), str(date[1]), str(date[0]), "время", str(time[0]), str(time[1]))
-            return True
-        except:
-            return False
 
-    def record_and_save_audio_file(self, number_of_records,RECORD_SECONDS,CHUNK=1024, FORMAT=pyaudio.paInt16, CHANNELS=2, RATE=44100):
+        date_object = str(datetime.datetime.now())
+        lst = date_object.split(" ")
+        date = lst[0].split("-")
+        time = lst[1].split(":")
+        voice("время" + str(time[0]) + str(time[1]))
+
+    def date(self):
+        '''
+        By Artem
+        Функция, показывающая текущую дату
+        :return: None
+        '''
+
+        date_object = str(datetime.datetime.now())
+        lst = date_object.split(" ")
+        date = lst[0].split("-")
+        voice("сегодня" + " " + str(date[2]) + "ое" + " " + str(date[1]) + "ое" + " " + str(
+            date[0]) + "ого" + " " + "года")
+
+    def record_and_save_audio_file(self, number_of_records, RECORD_SECONDS, CHUNK=1024, FORMAT=pyaudio.paInt16,
+                                   CHANNELS=2, RATE=44100):
         '''
         By Artem
         Функция осуществляющая запись и сохранение аудиофайлов
         :param number_of_records: количество записей
-        :param CHUNK:
+        :param CHUNK: чанк
         :param FORMAT: формат
         :param CHANNELS: каналы
         :param RATE: частота
@@ -149,9 +165,11 @@ class Commands():
 
             print("recording")
             frames = []
+
             for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
                 data = stream.read(CHUNK)
                 frames.append(data)
+
             print("done recording")
             stream.stop_stream()
             stream.close()
@@ -163,37 +181,43 @@ class Commands():
             wf.setframerate(RATE)
             wf.writeframes(b''.join(frames))
             wf.close()
+
     def create_recipe_book(self):
         '''
-        by Artem
-        Создает книгу(таблицу) рецептов в базе данных recipes
+        By Artem
+        Создает книгу(таблицу) рецептов в базе данных recipes, если она уже есть, ничего не делает
         :return: None
         '''
-        with sq.connect("recipes.db") as connection:
-            Cursor = connection.cursor()
 
-            Cursor.execute("""CREATE TABLE IF NOT EXISTS recipes (
-            meal TEXT,
-            recipe TEXT,
-            cooking time INTEGER
-            )""")
+        try:
+
+            with sq.connect("recipes.db") as connection:
+                Cursor = connection.cursor()
+
+                Cursor.execute("""CREATE TABLE recipes (
+                meal TEXT,
+                recipe TEXT,
+                cooking time INTEGER
+                )""")
+            voice("Книга рецептов успешно создана")
+
+        except:
+            voice("Книга рецептов уже создана")
+
     def delete_recipe(self):
         '''
         By Artem
-        Данная функция удаляет рецепт из книги(таблицы) рецептов
+        Данная функция удаляет рецепт из книги(таблицы) рецептов, если такого рецепта нет, ничего не делает
         :return: None
         '''
-        meals = []
-        try:
-            with sq.connect("recipes.db") as connection:
-                Cursor = connection.cursor()
-                voice("Какой рецепт хотите удалить?")
-                recipe_for_delete = input()
-                Cursor.execute(f"""DELETE FROM recipes WHERE name == {recipe_for_delete}""")
-                voice("Рецепт успешно удален")
 
-        except:
-            voice("Произошла какая-то ошибка")
+        with sq.connect("recipes.db") as connection:
+            Cursor = connection.cursor()
+            voice("Какой рецепт хотите удалить?")
+            recipe_for_delete = input()
+
+            Cursor.execute("DELETE FROM recipes WHERE meal == ?", (recipe_for_delete,))
+            voice("Рецепт успешно удален")
 
     def add_recipes(self):
         '''
@@ -203,41 +227,80 @@ class Commands():
         '''
         try:
             Recipes = []
+
             with sq.connect("recipes.db") as connection:
                 Cursor = connection.cursor()
                 voice("Сколько рецептов хотите внести?")
                 n = int(input())
+
                 for i in range(n):
                     voice("Введите название блюда")
                     Meal = input()
+
                     voice("Введите рецепт")
                     Recipe = input()
+
                     voice("Введите время приготовления")
                     Cooking_time = input()
+
                     tup = (Meal, Recipe, Cooking_time)
                     Recipes.append(tup)
+
                 Cursor.executemany("INSERT INTO recipes VALUES(?, ?, ?)", Recipes)
+
                 if len(Recipes) == 1:
                     voice("Рецепт успешно добавлен")
+
                 else:
                     voice("Рецепты успешно добавлены")
+
         except:
             voice("Произошла какая-то ошибка")
 
     def print_recipes(self):
         '''
         By Artem
-        Данная функция выводит рецепт определённого блюда
+        Данная функция выводит рецепт определённого блюда, если блюда в таблице нет, ничего не делает
         :return: None
         '''
-        meals = []
+
+        with sq.connect("recipes.db") as connection:
+            Cursor = connection.cursor()
+            voice("Рецепт какого блюда хотите увидеть?")
+            rec = input()
+            Cursor.execute("SELECT * FROM recipes WHERE meal = ?", (rec,))
+
+            result = Cursor.fetchall()
+
+            if len(result) > 0:
+
+                for i in result:
+                    voice("блюдо")
+                    voice(i[0])
+                    voice("рецепт")
+                    ingrs = i[1].split(" ")
+
+                    for ingr in ingrs:
+                        voice(ingr)
+
+                    voice("готовить" + i[2])
+
+            else:
+                voice("Наверное такого блюда нет в книге рецептов")
+
+    def delete_table(self):
+        '''
+        By Artem
+        Данная функция удаляет таблицу, если таблицы не существует, ничего не делает
+        :return: None
+        '''
+
         try:
             with sq.connect("recipes.db") as connection:
-                Cursor = connection.cursor()
-                voice("Рецепт какого блюда хотите увидеть?")
-                rec = input()
-                Cursor.execute(f"SELECT meal,recipe,cooking time FROM recipes WHERE name = {rec}")
 
+                Cursor = connection.cursor()
+                Cursor.execute("DROP TABLE recipes")
+                voice("Книга рецептов успешно удалена")
 
         except:
-            voice("Такого блюда нет")
+            voice("Книги рецептов итак нет")
