@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="00922d9d-0832-48de-baad-d2c133fc4d1c" name="Changes" comment="New functions added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Voice_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Voice_helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Voice_helper_tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/Voice_helper_tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/check_lms.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipes.db" beforeDir="false" afterPath="$PROJECT_DIR$/recipes.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,6 +157,7 @@
       <updated>1669411182412</updated>
       <workItem from="1670874575712" duration="18000" />
       <workItem from="1670874604177" duration="993000" />
+      <workItem from="1670938475200" duration="247000" />
     </task>
     <task id="LOCAL-00001" summary="New functions added: Sonechka_command, random_exercise, Open, main">
       <created>1670312474143</created>
