@@ -191,7 +191,7 @@ class Commands():
 
         try:
 
-            with sq.connect("recipes.db") as connection:
+            with sq.connect("files_for_tests/recipes.db") as connection:
                 Cursor = connection.cursor()
 
                 Cursor.execute("""CREATE TABLE recipes (
@@ -211,7 +211,7 @@ class Commands():
         :return: None
         '''
 
-        with sq.connect("recipes.db") as connection:
+        with sq.connect("files_for_tests/recipes.db") as connection:
             Cursor = connection.cursor()
             voice("Какой рецепт хотите удалить?")
             recipe_for_delete = input()
@@ -228,7 +228,7 @@ class Commands():
         try:
             Recipes = []
 
-            with sq.connect("recipes.db") as connection:
+            with sq.connect("files_for_tests/recipes.db") as connection:
                 Cursor = connection.cursor()
                 voice("Сколько рецептов хотите внести?")
                 n = int(input())
@@ -264,7 +264,7 @@ class Commands():
         :return: None
         '''
 
-        with sq.connect("recipes.db") as connection:
+        with sq.connect("files_for_tests/recipes.db") as connection:
             Cursor = connection.cursor()
             voice("Рецепт какого блюда хотите увидеть?")
             rec = input()
@@ -296,11 +296,11 @@ class Commands():
         '''
 
         try:
-            with sq.connect("recipes.db") as connection:
+            with sq.connect("files_for_tests/recipes.db") as connection:
 
                 Cursor = connection.cursor()
                 Cursor.execute("DROP TABLE recipes")
                 voice("Книга рецептов успешно удалена")
 
         except:
-            voice("Книги рецептов итак нет")
+            voice("Книги рецептов и так нет")

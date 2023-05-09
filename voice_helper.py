@@ -1,5 +1,5 @@
 import speech_recognition
-from Main import Commands, voice
+from main import Commands, voice
 import pyttsx3
 import datetime
 import pyaudio
